@@ -1,5 +1,5 @@
 FROM debian:stretch
-MAINTAINER David Personette <dperson@gmail.com>
+MAINTAINER CoeusITE <coeusite@gmail.com>
 
 # Install transmission
 RUN export DEBIAN_FRONTEND='noninteractive' && \
