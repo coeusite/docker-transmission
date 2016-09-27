@@ -4,7 +4,7 @@ MAINTAINER CoeusITE <coeusite@gmail.com>
 # Install transmission
 RUN export DEBIAN_FRONTEND='noninteractive' && \
     apt-get update -qq && \
-    apt-get install -qqy --no-install-recommends transmission-daemon curl \
+    apt-get install -qqy --no-install-recommends transmission-daemon curl\
                 $(apt-get -s dist-upgrade|awk '/^Inst.*ecurity/ {print $2}') &&\
     apt-get clean && \
     dir="/var/lib/transmission-daemon" && \
@@ -27,7 +27,14 @@ RUN export DEBIAN_FRONTEND='noninteractive' && \
                 $file && \
     chown -Rh debian-transmission. $dir && \
     rm -rf /var/lib/apt/lists/* /tmp/*
+
 COPY transmission.sh /usr/bin/
+
+# Add support for installing Transmission Web Control
+COPY install-tr-web-control.sh /root/
+
+# 755 for scripts
+RUN chmod 755 /usr/bin/transmission.sh /root/install-tr-web-control.sh
 
 VOLUME ["/var/lib/transmission-daemon"]
 

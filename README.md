@@ -87,6 +87,7 @@ Will get you the same settings as
     sudo docker restart transmission
 
 ### Seedbox
+Run this command for a seedbox:
 ```bash
 sudo docker run -it --name transmission -p 127.0.0.1:9091:9091 \
             -p 51413:51413/tcp -p 51413:51413/udp \
@@ -97,6 +98,12 @@ sudo docker run -it --name transmission -p 127.0.0.1:9091:9091 \
             -e "TRUSER=<Your Username for Auth>" \
             -e "TRPASSWD=<Your Passcode for Auth>" \
             -d coeusite/docker-transmission
+```
+
+Note that you can install [Transmission Web Control](https://github.com/ronggang/transmission-web-control) by following commands:
+
+```bash
+sudo docker exec transmission /root/install-tr-web-control.sh
 ```
 
 # User Feedback
