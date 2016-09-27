@@ -86,6 +86,19 @@ Will get you the same settings as
                 ls -AlF /etc/localtime
     sudo docker restart transmission
 
+### Seedbox
+```bash
+sudo docker run -it --name transmission -p 127.0.0.1:9091:9091 \
+            -p 51413:51413/tcp -p 51413:51413/udp \
+            -v /path/to/directory:/var/lib/transmission-daemon \
+            -e "TR_PEX_ENABLED=false" \
+            -e "TR_LPD_ENABLED=false" \
+            -e "TR_DHT_ENABLED=false" \
+            -e "TRUSER=<Your Username for Auth>" \
+            -e "TRPASSWD=<Your Passcode for Auth>" \
+            -d coeusite/docker-transmission
+```
+
 # User Feedback
 
 ## Issues
