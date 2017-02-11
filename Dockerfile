@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:jessie
 MAINTAINER CoeusITE <coeusite@gmail.com>
 
 # Install transmission
